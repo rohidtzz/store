@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home.index');
-});
+Route::get('/', [HomeController::class,'home']);
+
+Route::get('/operator/{category_id}', [HomeController::class,'operator']);
+
+Route::get('/product/{operator_id}/{category_id}', [HomeController::class,'product']);
+
+
+
+
+
+
 
 
 Route::get('/cart',function() {

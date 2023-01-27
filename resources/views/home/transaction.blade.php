@@ -24,8 +24,8 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col col-3 col-xl-3 col-md-3  text-start">
-                                <img src="{{asset('land/dist/assets/favicon.ico') }}" alt="">
+                            <div class="col-4 col-xl-3 col-md-3  text-start">
+                                <img  width="100px" src="{{asset('land/dist/assets/favicon.ico') }}" alt="">
                                 {{-- @foreach (json_decode($pro->data) as $s)
 
                                 <img src="{{ asset('product/img/'.$s->image) }}" width="100px" alt="">
@@ -58,6 +58,9 @@
                 </div>
             {{-- </a> --}}
         </div>
+    </a>
+
+    <a href="{{ url('transaction/') }}" style="text-decoration: none;color:black">
         <div class="col-12 col-sm-12 col-xl-5" style="display:inline-block;vertical-align: middle;float: none;">
             <div class="card" style="margin: 5%">
                 <div class="card-header">
@@ -76,7 +79,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col col-3 col-xl-3 col-md-3  text-start">
+                        <div class="col-4 col-xl-3 col-md-3  text-start">
                             <img width="100px" src="{{asset('land/dist/assets/favicon.ico') }}" alt="">
                             {{-- @foreach (json_decode($pro->data) as $s)
 
