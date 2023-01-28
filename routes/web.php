@@ -21,6 +21,12 @@ Route::get('/operator/{category_id}', [HomeController::class,'operator']);
 
 Route::get('/product/{operator_id}/{category_id}', [HomeController::class,'product']);
 
+route::get('/pricelist/{kategori}', [HomeController::class,'iak']);
+
+route::get('/beli/{kategori}', [HomeController::class,'iak_kategori']);
+
+route::get('/prefix/pulsa/{operator}', [HomeController::class,'iak_prefix_pulsa']);
+
 
 
 
