@@ -95,7 +95,7 @@
                                                         </div>
 
                                                         <div class="col text-start" style="padding:7px">
-                                                        Pulsa ${y.product_description} Rp ${y.product_nominal}
+                                                        ${y.product_description} ${y.product_nominal}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -240,12 +240,298 @@
                 },
             });
 
+        } else if(isi == '0812' || isi == '0813' || isi == '0852' || isi == '0853' || isi == '0821' || isi == '0823' || isi == '082' || isi == '0851'){
+            //telkomsel
+
+            $.ajax({
+                type : 'get',
+                url : '/prefix/pulsa/Telkomsel',
+                success : function(data){
+
+                    $('.hide').empty();
+
+                    $(data).each(function(x,y){
+                        // console.log(y.category_id)
+                        const rupiah = (number)=>{
+                                return new Intl.NumberFormat("id-ID", {
+                                }).format(number);
+                            }
+
+                            if(y.product_code == 'htelkomsel50000TEL' || y.product_code == 'htelkomsel5000SMS' || y.product_code == 'htelkomsel5000TEL' ){
+
+                                result =  `
+
+
+                                            <div class=  "col-12"  >
+                                                <div  class=  "card"  style=  "margin-top: 2%"  >
+                                                    <div  class=  "card-body"  >
+                                                        <div class="row">
+                                                            <div class="col-6 text-start" style="padding:7px">
+                                                                <input required name="code" value="${y.product_code}" type="radio"> ${y.product_description} ${y.product_nominal}
+                                                            </div>
+                                                            <div class="col-6 text-end" style="padding:7px">
+                                                            Rp ${rupiah(y.product_price)}
+                                                            </div>
+
+                                                            <div class="col text-start" style="padding:7px">
+                                                            ${y.product_nominal}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                                `;
+
+                            } else {
+                                result =  `
+
+
+                                            <div class=  "col-12"  >
+                                                <div  class=  "card"  style=  "margin-top: 2%"  >
+                                                    <div  class=  "card-body"  >
+                                                        <div class="row">
+                                                            <div class="col-6 text-start" style="padding:7px">
+                                                                <input required name="code" value="${y.product_code}" type="radio"> ${y.product_description} ${rupiah(y.product_nominal)}
+                                                            </div>
+                                                            <div class="col-6 text-end" style="padding:7px">
+                                                            Rp ${rupiah(y.product_price)}
+                                                            </div>
+
+                                                            <div class="col text-start" style="padding:7px">
+                                                            Pulsa ${y.product_description} Rp ${rupiah(y.product_nominal)}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                                `;
+
+                            }
+                        $('.hide').append(result);
+                    });
+
+                    $('#product').empty();
+
+
+
+                },
+            });
+
+        } else if(isi == '0838' || isi == '0837' || isi == '0831' || isi == '0832'){
+            //Axis
+
+            $.ajax({
+                type : 'get',
+                url : '/prefix/pulsa/AXIS',
+                success : function(data){
+
+                    $('.hide').empty();
+
+                    $(data).each(function(x,y){
+                        // console.log(y.category_id)
+                        const rupiah = (number)=>{
+                                return new Intl.NumberFormat("id-ID", {
+                                }).format(number);
+                        }
+                        result =  `
+
+
+                                    <div class=  "col-12"  >
+                                        <div  class=  "card"  style=  "margin-top: 2%"  >
+                                            <div  class=  "card-body"  >
+                                                <div class="row">
+                                                    <div class="col-6 text-start" style="padding:7px">
+                                                        <input required name="code" value="${y.product_code}" type="radio"> ${y.product_description} ${rupiah(y.product_nominal)}
+                                                    </div>
+                                                    <div class="col-6 text-end" style="padding:7px">
+                                                       Rp ${rupiah(y.product_price)}
+                                                    </div>
+
+                                                    <div class="col text-start" style="padding:7px">
+                                                    Pulsa ${y.product_description} Rp ${rupiah(y.product_nominal)}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                        `;
+                        $('.hide').append(result);
+                    });
+
+                    $('#product').empty();
+
+
+
+                },
+            });
+
+        } else if(isi == '0817' || isi == '0818' || isi == '0819' || isi == '0859' || isi == '0878' || isi == '0877'){
+                //XL
+
+                $.ajax({
+                    type : 'get',
+                    url : '/prefix/pulsa/XL',
+                    success : function(data){
+
+                        $('.hide').empty();
+
+                        $(data).each(function(x,y){
+                            // console.log(y.category_id)
+                            const rupiah = (number)=>{
+                                    return new Intl.NumberFormat("id-ID", {
+                                    }).format(number);
+                                }
+
+                                if(y.product_code == 'xld500AN90' || y.product_code == 'xld500AN30' || y.product_code == 'xld400AN7' || y.product_code == 'xld325AN30' || y.product_code == 'xld300AN90'){
+
+                                    result =  `
+
+
+                                                <div class=  "col-12"  >
+                                                    <div  class=  "card"  style=  "margin-top: 2%"  >
+                                                        <div  class=  "card-body"  >
+                                                            <div class="row">
+                                                                <div class="col-6 text-start" style="padding:7px">
+                                                                    <input required name="code" value="${y.product_code}" type="radio"> ${y.product_description} ${y.product_nominal}
+                                                                </div>
+                                                                <div class="col-6 text-end" style="padding:7px">
+                                                                Rp ${rupiah(y.product_price)}
+                                                                </div>
+
+                                                                <div class="col text-start" style="padding:7px">
+                                                                ${y.product_nominal}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                    `;
+
+                                } else {
+                                    result =  `
+
+
+                                                <div class=  "col-12"  >
+                                                    <div  class=  "card"  style=  "margin-top: 2%"  >
+                                                        <div  class=  "card-body"  >
+                                                            <div class="row">
+                                                                <div class="col-6 text-start" style="padding:7px">
+                                                                    <input required name="code" value="${y.product_code}" type="radio"> ${y.product_description} ${rupiah(y.product_nominal)}
+                                                                </div>
+                                                                <div class="col-6 text-end" style="padding:7px">
+                                                                Rp ${rupiah(y.product_price)}
+                                                                </div>
+
+                                                                <div class="col text-start" style="padding:7px">
+                                                                Pulsa ${y.product_description} Rp ${rupiah(y.product_nominal)}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                    `;
+
+                                }
+                            $('.hide').append(result);
+                        });
+
+                        $('#product').empty();
+
+
+
+                    },
+                });
+
+            } else if(isi == '0814' || isi == '0815' || isi == '0816' || isi == '0855' || isi == '0856' || isi == '0857' || isi == '0858'){
+                //Indosat
+
+                $.ajax({
+                    type : 'get',
+                    url : '/prefix/pulsa/Indosat',
+                    success : function(data){
+
+                        $('.hide').empty();
+
+                        $(data).each(function(x,y){
+                            // console.log(y.category_id)
+                            const rupiah = (number)=>{
+                                    return new Intl.NumberFormat("id-ID", {
+                                    }).format(number);
+                                }
+
+                                if(y.product_code == 'hindosat5000SMS' || y.product_code == 'hindosat50000TEL' || y.product_code == 'hindosat25000SMS' || y.product_code == 'hindosat10000SMS'){
+
+                                    result =  `
+
+
+                                                <div class=  "col-12"  >
+                                                    <div  class=  "card"  style=  "margin-top: 2%"  >
+                                                        <div  class=  "card-body"  >
+                                                            <div class="row">
+                                                                <div class="col-6 text-start" style="padding:7px">
+                                                                    <input required name="code" value="${y.product_code}" type="radio"> ${y.product_description} ${y.product_nominal}
+                                                                </div>
+                                                                <div class="col-6 text-end" style="padding:7px">
+                                                                Rp ${rupiah(y.product_price)}
+                                                                </div>
+
+                                                                <div class="col text-start" style="padding:7px">
+                                                                ${y.product_nominal}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                    `;
+
+                                } else {
+                                    result =  `
+
+
+                                                <div class=  "col-12"  >
+                                                    <div  class=  "card"  style=  "margin-top: 2%"  >
+                                                        <div  class=  "card-body"  >
+                                                            <div class="row">
+                                                                <div class="col-6 text-start" style="padding:7px">
+                                                                    <input required name="code" value="${y.product_code}" type="radio"> ${y.product_description} ${rupiah(y.product_nominal)}
+                                                                </div>
+                                                                <div class="col-6 text-end" style="padding:7px">
+                                                                Rp ${rupiah(y.product_price)}
+                                                                </div>
+
+                                                                <div class="col text-start" style="padding:7px">
+                                                                Pulsa ${y.product_description} Rp ${rupiah(y.product_nominal)}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                    `;
+
+                                }
+                            $('.hide').append(result);
+                        });
+
+                        $('#product').empty();
+
+
+
+                    },
+                });
+
+            }
         }
 
         // $('.hide').empty();
         // $('#buttom').prop('disabled', true);
 
-    }
 
 </script>
 
